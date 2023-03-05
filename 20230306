@@ -1,0 +1,11 @@
+/* 2장 실습문제 2번*/
+#include<iostream>
+
+int main() {
+    for (int x = 1; x < 10; x++) {
+        for (int y = 1; y < 10; y++) {
+            std::cout << x << "X" << y << "=" << x * y << "\t";
+        }
+        std::cout << std::endl;
+    }
+}
