@@ -9,3 +9,31 @@ int main() {
         std::cout << std::endl;
     }
 }
+
+
+/* 1장 실습문제 3번*/
+#include<iostream>
+
+int main() {
+    int sum = 0;
+    for (int i = 1; i < 11; i++) {
+        sum += i;
+    }
+    std::cout << "1에서 10까지 더한 값은 " << sum << " 입니다.";
+}
+
+
+/* 1장 실습문제 3번 변형*/
+#include<iostream>
+
+int main() {
+    int x = 0;
+    std::cout << "임의의 정수값 입력\n";
+    std::cin >> x;
+
+    int sum = 0;
+    for (int i = 1; i < x+1; i++) {
+        sum+=i;
+    }
+    std::cout << "1에서"<<x<<"까지 더한 값은 " << sum << " 입니다.";
+}
