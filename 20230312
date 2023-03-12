@@ -1,0 +1,19 @@
+/*2장 연습문제 10번*/
+#include <iostream>
+using namespace std;
+
+int main() {
+	char a[100];
+	cout << "문자열 입력>>";
+	cin.getline(a, 100);
+
+	for (int i=0; i < strlen(a) + 1; i++) {
+		for (int h = 0; h < i; h++) {
+			cout << a[h];//h는 변수. 
+			             //h=0 -> a[0] -> h출력
+						       //h=1 -> a[1] -> e출력
+                   //               ...
+		}
+		cout<<endl;
+	}
+}
