@@ -1,0 +1,57 @@
+//Random.h
+//선언부
+//.h는 컴파일 대상 아님
+#ifndef RANDOM_H
+#define RANDOM_H
+
+class Random { //클래스 이름은 대문자로 시작
+public:
+	Random();
+	int next(); // 0 ~ RAND_MAX
+	int nextInRange(int start, int end); //함수이름은 소문자로, 여러 문자 결합시 각 문자의 시작은 대문자로. 변수도 소문자로
+};
+#endif
+
+//Random.cpp
+//구현부
+#include"Random.h"
+#include<cstdlib>
+#include<ctime>
+Random::Random() {
+	srand((unsigned)time(0));//객체생성할때 씨드 한번만 주면 됨.메인 실행될 때 다른 씨드 생성됨
+}
+int Random::next() {
+	//srand((unsigned)time(0));//time(0)->지금 시간을 제공.초를 반환함/ srand()->씨앗을 제공
+							  //루프가 1초안에 돌아서 씨드가 똑같이 반환됨
+	int n = rand(); //rand() -> 임의의 정수 하나 리턴. 랜덤한 숫자지만 패턴이 같음 => 씨앗(시드)를 다르게 뿌려줘야 함 
+	return n;
+}
+int Random::nextInRange(int start, int end) {
+	int n = rand();
+	n = n % (end - start + 1)+start;
+	return n;
+}
+
+//main.cpp
+#include <iostream>
+#include<cstdlib>
+#include"Random.h"
+
+using namespace std;
+
+int main() {
+	Random r;//랜덤발생기 객체
+
+	cout << 0 << "부터" << RAND_MAX << "까지 10개" << endl;
+	for (int i = 0; i < 10; i++) {
+		int n=r.next();
+		cout << n << "\t";
+	}
+	cout << endl;
+
+	cout << 2 << "부터" << 4 << "까지 10개" << endl;
+	for (int i = 0; i < 10; i++) {
+		int n = r.nextInRange(2,4);
+		cout << n << "\t";
+	}
+}
